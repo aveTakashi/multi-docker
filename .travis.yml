@@ -9,14 +9,14 @@ script:
   - docker run -e CI=true banabasave/react-test npm test
 
 after_success:
-  - docker build -t banabasave/multi-client ./client
-  - docker build -t banabasave/multi-nginx ./nginx
-  - docker build -t banabasave/multi-server ./server
-  - docker build -t banabasave/multi-worker ./worker
+  - docker build -t banbasave/multi-client ./client
+  - docker build -t banbasave/multi-nginx ./nginx
+  - docker build -t banbasave/multi-server ./server
+  - docker build -t banbasave/multi-worker ./worker
 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push banabasave/multi-client
-  - docker push banabasave/multi-nginx
-  - docker push banabasave/multi-server
-  - docker push banabasave/multi-worker
+  - docker push banbasave/multi-client
+  - docker push banbasave/multi-nginx
+  - docker push banbasave/multi-server
+  - docker push banbasave/multi-worker
 
